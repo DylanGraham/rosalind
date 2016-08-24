@@ -1,4 +1,5 @@
 from fractions import Fraction as Fr
+import random
 
 data = {}
 
@@ -20,65 +21,72 @@ def pick(x):
 def prob(x):
     return Fr(data[x], sum(data.values()))
 
-print('Probability of 2 x a')
+
 reset_data()
 p1 = prob('a')
 pick('a')
 p2 = prob('a')
-print(p1 * p2)
+aa = p1 * p2
 
-print('Probability of 2 x b')
 reset_data()
 p1 = prob('b')
 pick('b')
 p2 = prob('b')
-print(p1 * p2)
+bb = p1 * p2
 
-print('Probability of 2 x c')
 reset_data()
 p1 = prob('c')
 pick('c')
 p2 = prob('c')
-print(p1 * p2)
+cc = p1 * p2
 
-print('Probability of 1 x a, 1 x b')
 reset_data()
 p1 = prob('a')
 pick('a')
 p2 = prob('b')
-print(p1 * p2)
+ab = p1 * p2
 
-print('Probability of 1 x a, 1 x c')
 reset_data()
 p1 = prob('a')
 pick('a')
 p2 = prob('c')
-print(p1 * p2)
+ac = p1 * p2
 
-print('Probability of 1 x b, 1 x a')
 reset_data()
 p1 = prob('b')
 pick('b')
 p2 = prob('a')
-print(p1 * p2)
+ba = p1 * p2
 
-print('Probability of 1 x b, 1 x c')
 reset_data()
 p1 = prob('b')
 pick('b')
 p2 = prob('c')
-print(p1 * p2)
+bc = p1 * p2
 
-print('Probability of 1 x c, 1 x a')
 reset_data()
 p1 = prob('c')
 pick('c')
 p2 = prob('a')
-print(p1 * p2)
+ca = p1 * p2
 
-print('Probability of 1 x c, 1 x b')
 reset_data()
 p1 = prob('c')
 pick('c')
 p2 = prob('b')
-print(p1 * p2)
+cb = p1 * p2
+
+print('Probability of 2 x a ', aa)
+print('Probability of 2 x b ', bb)
+print('Probability of 2 x c ', cc)
+print('Probability of 1 x a, 1 x b ', ab)
+print('Probability of 1 x a, 1 x c ', ac)
+print('Probability of 1 x b, 1 x a ', ba)
+print('Probability of 1 x b, 1 x c ', bc)
+print('Probability of 1 x c, 1 x a ', ca)
+print('Probability of 1 x c, 1 x b ', cb)
+
+print('Probability that two randomly selected mating organisms will'
+      'produce an individual possessing a dominant allele'
+      '(and thus displaying the dominant phenotype). Assume that any two organisms can mate.')
+
