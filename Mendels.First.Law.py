@@ -6,7 +6,7 @@ data = {}
 
 def reset_data():
     global data
-    data = {'a': 2, 'b': 2, 'c': 2}
+    data = {'a': 21, 'b': 18, 'c': 21}
 
 
 def pick(x):
@@ -87,6 +87,8 @@ print('Probability of 1 x c, 1 x a ', ca)
 print('Probability of 1 x c, 1 x b ', cb)
 
 print('Probability that two randomly selected mating organisms will'
-      'produce an individual possessing a dominant allele'
+      'produce an individual possessing a dominant allele\n'
       '(and thus displaying the dominant phenotype). Assume that any two organisms can mate.')
 
+print(aa + (bb * 3/4) + ab + ac + ba + (bc * 1/2) + ca + (cb * 1/2))
+print(aa + (bb * .75) + ab + ac + ba + (bc * .5) + ca + (cb * .5))
