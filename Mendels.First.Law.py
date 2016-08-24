@@ -1,25 +1,76 @@
-import random
-from collections import defaultdict
-from fractions import Fraction
+from fractions import Fraction as Fr
 
-samples = 1000
-data1 = [0b11] * 2
-data2 = [0b10, 0b01]
-data3 = [0b00] * 2
-data = data1 + data2 + data3
 
-#result = {0: 0, 1: 0, 2: 0}
-result = defaultdict(int)
+def pick(data, x):
+    if data[x] > 0:
+        data[x] -= 1
+        return True
+    else:
+        return False
 
-for _ in range(samples):
-    pick = random.sample(data, 2)
-    result[pick[0] | pick[1]] += 1
 
-print((result[3] + result[2]) / samples)
-print(result)
+def prob(x):
+    return Fr(x, sum(data.values()))
 
-# TODO: play with fractions
-a = 2
-b = 2
-c = 2
+print('Probability of 2 x a')
+data = {'a': 2, 'b': 2, 'c': 2}
+p1 = prob(data['a'])
+pick(data, 'a')
+p2 = prob(data['a'])
+print(p1 * p2)
 
+print('Probability of 2 x b')
+data = {'a': 2, 'b': 2, 'c': 2}
+p1 = prob(data['b'])
+pick(data, 'b')
+p2 = prob(data['b'])
+print(p1 * p2)
+
+print('Probability of 2 x c')
+data = {'a': 2, 'b': 2, 'c': 2}
+p1 = prob(data['c'])
+pick(data, 'c')
+p2 = prob(data['c'])
+print(p1 * p2)
+
+print('Probability of 1 x a, 1 x b')
+data = {'a': 2, 'b': 2, 'c': 2}
+p1 = prob(data['a'])
+pick(data, 'a')
+p2 = prob(data['b'])
+print(p1 * p2)
+
+print('Probability of 1 x a, 1 x c')
+data = {'a': 2, 'b': 2, 'c': 2}
+p1 = prob(data['a'])
+pick(data, 'a')
+p2 = prob(data['c'])
+print(p1 * p2)
+
+print('Probability of 1 x b, 1 x a')
+data = {'a': 2, 'b': 2, 'c': 2}
+p1 = prob(data['b'])
+pick(data, 'b')
+p2 = prob(data['a'])
+print(p1 * p2)
+
+print('Probability of 1 x b, 1 x c')
+data = {'a': 2, 'b': 2, 'c': 2}
+p1 = prob(data['b'])
+pick(data, 'b')
+p2 = prob(data['c'])
+print(p1 * p2)
+
+print('Probability of 1 x c, 1 x a')
+data = {'a': 2, 'b': 2, 'c': 2}
+p1 = prob(data['c'])
+pick(data, 'c')
+p2 = prob(data['a'])
+print(p1 * p2)
+
+print('Probability of 1 x c, 1 x b')
+data = {'a': 2, 'b': 2, 'c': 2}
+p1 = prob(data['c'])
+pick(data, 'c')
+p2 = prob(data['b'])
+print(p1 * p2)
