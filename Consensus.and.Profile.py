@@ -7,9 +7,7 @@ from Bio.Seq import Seq
 
 class MySummaryInfo(AlignInfo.SummaryInfo):
     def __init__(self, alignment):
-        super()
-        self.alignment = alignment
-        self.ic_vector = {}
+        super(MySummaryInfo, self).__init__(alignment)
 
     def dumb_consensus(self, threshold=.7, ambiguous="X",
                        consensus_alpha=None, require_multiple=0):
